@@ -22,6 +22,12 @@
     -->
     id, loginacct, userpswd, username, email, createtime
   </sql>
+  <select id="selectByLoginacct" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+    where  loginacct = #{loginacct,jdbcType=VARCHAR}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated
